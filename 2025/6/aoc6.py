@@ -39,8 +39,7 @@ def step2(data: Data) -> int:
 # Could probably refactor to share parsing with step1, but meeh..
 def parse_2d_array(data: str) -> Data:
     lines = [line for line in data.splitlines() if line.strip()]
-    rows = [list(line) for line in lines]
-    cols = list(zip(*rows))  # Problem seems col centric, so transpose
+    cols = list(zip(*lines))  # Problem seems col centric, so transpose
     cols.reverse()  # My brain works other way around than the cephalopod
     return cols
 
