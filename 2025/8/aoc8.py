@@ -8,7 +8,7 @@ import heapq
 Coord = Tuple[int, int, int]
 
 
-class DisUnion:
+class UnionFind:
     def __init__(self, n):
         self.parent = list(range(n))
         self.size = [1] * n
@@ -46,7 +46,7 @@ def min_dist_heap(coords: List[Coord]) -> List[Tuple[float, Coord, Coord]]:
     return queue
 
 
-def mul_largest_3(uf: DisUnion, coords: List[Coord]) -> int:
+def mul_largest_3(uf: UnionFind, coords: List[Coord]) -> int:
     components = defaultdict(int)
     for i in range(len(coords)):
         root = uf.find(i)
@@ -60,7 +60,7 @@ def solve(coords: List[Coord], n_connections: int) -> Tuple[int, int]:
     index = {coord: i for i, coord in enumerate(coords)}
     queue = min_dist_heap(coords)
 
-    uf = DisUnion(len(coords))
+    uf = UnionFind(len(coords))
     edges_used = 0
     part1 = 0
     part2 = 0
