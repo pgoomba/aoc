@@ -1,4 +1,7 @@
-def checkRange(rangeStr: str) -> list[int]:
+from typing import List, Sequence, Tuple
+
+
+def checkRange(rangeStr: str) -> Tuple[List[int], List[int]]:
     invalid1 = []
     invalid2 = []
     start, end = map(int, rangeStr.split("-"))
@@ -24,7 +27,7 @@ def checkRange(rangeStr: str) -> list[int]:
     return invalid1, invalid2
 
 
-def sumRanges(ranges: list[str]) -> int:
+def sumRanges(ranges: Sequence[str]) -> Tuple[int, int]:
     sum1 = sum2 = 0
     for r in ranges:
         invalid1, invalid2 = checkRange(r)
