@@ -1,5 +1,5 @@
 # %%
-from functools import lru_cache
+from functools import cache
 from typing import Dict, Tuple
 from collections import deque, defaultdict
 
@@ -10,7 +10,7 @@ ALL_MASK = 0b11
 
 
 def part2(graph: Graph) -> int:
-    @lru_cache(None)
+    @cache
     def dfs(node, state=0) -> int:
         if node == "out":
             return int(state == ALL_MASK)
